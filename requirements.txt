@@ -5,3 +5,5 @@ matplotlib
 dlib
 opencv-python
 kaggle
+mediapipe
+openCV
