@@ -123,6 +123,7 @@ In Course Evaluation 2 (CE2), the project will advance to predictive machine lea
 facial-feature-analysis-ml/
 ├── data/
 │   ├── raw/                           # Raw UTKFace image files (git-ignored)
+│   │   └── README.md                  # Raw dataset acquisition instructions
 │   └── processed/                     # Intermediate & final preprocessed datasets
 │       ├── utkface_metadata.csv
 │       ├── utkface_cleaned.csv
@@ -133,6 +134,8 @@ facial-feature-analysis-ml/
 │       ├── X_features.csv
 │       ├── y_target.csv
 │       └── utkface_final_preprocessed.csv
+├── models/                            # Machine learning models & ONNX weights
+│   └── face_detection_yunet_2023mar.onnx
 ├── notebooks/
 │   ├── 01_setup_and_environment.ipynb
 │   ├── 02_dataset_collection_and_description.ipynb

@@ -1,5 +1,6 @@
 # Datasets & API Credentials
-data/raw/
+data/raw/*
+!data/raw/README.md
 *.zip
 kaggle.json
 
