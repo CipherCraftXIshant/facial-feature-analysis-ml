@@ -1,7 +1,7 @@
 # Facial Feature Analysis and Age Prediction
 
 ## Project Overview
-This project presents Course Evaluation 1 (CE1) for an AIML research initiative titled **"Facial Feature Analysis and Age Prediction using Machine Learning"**. The primary focus of this initial evaluation phase is establishing a rigorous data processing and feature engineering pipeline using classical machine learning methodology. 
+This project presents AIML research initiative titled **"Facial Feature Analysis and Age Prediction using Machine Learning"**. The primary focus of this initial evaluation phase is establishing a rigorous data processing and feature engineering pipeline using classical machine learning methodology. 
 
 Using the publicly available **UTKFace** dataset, we extracted structural facial landmarks, constructed scale-invariant geometric proportion features, performed exploratory data analysis (EDA), and generated a clean, model-ready dataset. No predictive models have been trained or evaluated in CE1; model building, training, and evaluation are reserved for Course Evaluation 2 (CE2).
 
