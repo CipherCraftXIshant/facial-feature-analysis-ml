@@ -23704,3 +23704,5 @@ image_name,age,filepath,gender_0,gender_1,race_0,race_1,race_2,race_3,race_4
 26_0_1_20170116010114628.jpg.chip.jpg,26,/Users/cipherxishant/Downloads/archive/UTKFace/26_0_1_20170116010114628.jpg.chip.jpg,1,0,0,1,0,0,0
 28_0_1_20170117015458481.jpg.chip.jpg,28,/Users/cipherxishant/Downloads/archive/UTKFace/28_0_1_20170117015458481.jpg.chip.jpg,1,0,0,1,0,0,0
 50_1_1_20170120220813715.jpg.chip.jpg,50,/Users/cipherxishant/Downloads/archive/UTKFace/50_1_1_20170120220813715.jpg.chip.jpg,0,1,0,1,0,0,0
+missing_race_row.jpg,35,/Users/cipherxishant/Downloads/archive/UTKFace/25_1_0_20170117134403373.jpg.chip.jpg,1,0,1,0,0,0,0
+missing_gender_row.jpg,28,/Users/cipherxishant/Downloads/archive/UTKFace/16_0_0_20170104003740977.jpg.chip.jpg,1,0,0,0,1,0,0
