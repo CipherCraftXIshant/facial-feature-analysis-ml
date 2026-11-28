@@ -1,0 +1,64 @@
+================================================================================
+             CE2: FACIAL FEATURE ANALYSIS AND AGE PREDICTION
+                     CONSOLIDATED RESULTS SUMMARY
+================================================================================
+
+1. REGRESSION MODEL BENCHMARKS
+-----------------------------------
+                           Model  Train_MAE  Test_MAE  Train_RMSE  Test_RMSE  Train_R2  Test_R2  Train_MSE  Test_MSE
+                 Baseline (Mean)    15.5015   16.5798     20.0591    21.0996    0.0000  -0.0021   402.3679  445.1925
+   Simple LR (face_aspect_ratio)    15.2493   16.1086     19.3774    20.3385    0.0668   0.0689   375.4821  413.6566
+      Multiple Linear Regression    13.8583   14.7200     18.1997    19.1813    0.1768   0.1719   331.2289  367.9220
+Polynomial Regression (degree 2)    13.6784   14.6535     17.9914    19.1044    0.1955   0.1785   323.6897  364.9775
+
+2. FEATURE ABLATION STUDY
+------------------------------
+                   Feature_Set  Train_R2  Test_R2  Test_MAE  Test_RMSE
+             Demographics Only    0.0764   0.0744   15.6530    20.2784
+                 Geometry Only    0.1212   0.1152   15.5303    19.8263
+Both (Demographics + Geometry)    0.1768   0.1719   14.7200    19.1813
+
+3. BIAS-VARIANCE DECOMPOSITION
+-----------------------------------
+ Degree    Bias2  Variance  Bias2+Variance  Avg_Test_MSE
+      1 368.2339    1.5856        369.8196      369.8196
+      2 365.3276    5.0790        370.4066      370.4066
+      3 386.6605   23.5827        410.2432      410.2432
+      4 549.6830  404.7666        954.4496      954.4496
+
+4. CLASSIFICATION OF LIFE-STAGE AGE GROUPS (Sorted by F1 Macro)
+-----------------------------------------------------------------
+                         Model  Test_Accuracy  Balanced_Accuracy  Precision_macro  Recall_macro  F1_macro  F1_weighted  Adjacent_Accuracy
+          SVM (RBF) (balanced)         0.4133             0.3741           0.3635        0.3741    0.3486       0.4405             0.7217
+Logistic Regression (balanced)         0.4100             0.3570           0.3616        0.3570    0.3451       0.4377             0.7117
+        Naive Bayes (Gaussian)         0.4350             0.3641           0.3356        0.3641    0.3419       0.4410             0.7067
+                 Random Forest         0.5250             0.3395           0.3505        0.3395    0.3246       0.4670             0.7617
+                     KNN (k=7)         0.4850             0.3239           0.3447        0.3239    0.3169       0.4475             0.7400
+      Decision Tree (depth=10)         0.4600             0.3110           0.3134        0.3110    0.3036       0.4290             0.7383
+      Random Forest (balanced)         0.5033             0.3144           0.3040        0.3144    0.2963       0.4383             0.7450
+           Logistic Regression         0.5133             0.3217           0.2849        0.3217    0.2958       0.4419             0.7433
+  Decision Tree (unrestricted)         0.3933             0.2785           0.2731        0.2785    0.2749       0.3882             0.6900
+         Multiple LR -> binned         0.4617             0.2697           0.3434        0.2697    0.2442       0.3944             0.7750
+                     SVM (RBF)         0.5100             0.2860           0.2176        0.2860    0.2376       0.3846             0.7417
+      Baseline (Most Frequent)         0.4633             0.2000           0.0927        0.2000    0.1267       0.2934             0.7000
+
+5. UNSUPERVISED CLUSTERING & GEOMETRIC PCA
+---------------------------------------------
+                   Method              Parameters  n_clusters  Silhouette  ARI_vs_age_group  NMI_vs_age_group  Noise_pct
+                  K-Means          k=3, n_init=10           3      0.3095            0.0649            0.0720     0.0000
+        Ward Hierarchical       k=2, linkage=ward           2      0.2616            0.0055            0.0098     0.0000
+                   DBSCAN  eps=0.8, min_samples=5           2      0.2229           -0.0006            0.0003     5.8706
+Random labels (reference) uniform discrete [0, 2]           3     -0.0044           -0.0000            0.0010     0.0000
+
+6. SUBGROUP FAIRNESS & ERROR PARITY (TEST SET)
+--------------------------------------------------
+Attribute      Group   N  Mean_actual_age  Baseline_MAE  Model_MAE  MAE_gain    RMSE  Mean_signed_error  MAE_CI_low  MAE_CI_high  Small_group
+   Gender Female (1) 293          32.1160       16.5165    14.2770    2.2395 19.4188            -0.5985     12.9133      15.7221        False
+   Gender   Male (0) 307          36.1498       16.6402    15.1427    1.4975 18.9518            -1.5944     13.8850      16.4392        False
+     Race     Race_0 269          40.0706       19.9907    18.6285    1.3622 22.6485            -2.2043     17.0557      20.1487        False
+     Race     Race_1 107          31.6168       10.6838    11.4162   -0.7324 15.1945             1.2581      9.5872      13.3730        False
+     Race     Race_2  89          26.4157       17.6636    12.5563    5.1073 18.6903            -1.7025      9.8222      15.5979        False
+     Race     Race_3  98          31.8061       14.3982    12.7428    1.6554 15.8160            -0.1057     11.0161      14.6311        False
+     Race     Race_4  37          23.7297       12.0038     6.2993    5.7045  8.1549            -1.2058      4.8404       8.0915         True
+
+================================================================================
